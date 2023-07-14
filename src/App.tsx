@@ -20,6 +20,7 @@ function App() {
       <Route path="/" Component={Products}/>
       <Route path="/product/id" Component={ProductDetail}/>
       <Route path="/cartcontent" Component={CartContent}/>
+      <Route path="/payment" Component={CartContent}/>
       </Routes>
     </div>
   </Router>

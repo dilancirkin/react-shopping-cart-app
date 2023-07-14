@@ -1,18 +1,26 @@
-import React, {useState, useEffect} from 'react';
+import React from "react";
+import { Grid } from "@mui/material";
 
-import useFetch from '../../hooks'
+import ProductCard from "../../components/ProductCard";
+import useFetch from "../../hooks";
 
-function Products() {
-    const {data} = useFetch();
+const Products = () => {
+  const products = useFetch();
 
-  
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  if (!products) {
+    return <div>Loading...</div>;
+  }
 
   return (
-    <div></div>
-  )
-}
+    <Grid container spacing={2} alignItems="stretch">
+        {products.map((product) => (
+        <Grid item xs={12} sm={4} key={product.id}>
+        <ProductCard product={product} />
+      </Grid>
+      ))}
+  </Grid>
+   
+  );
+};
 
-export default Products
+export default Products;

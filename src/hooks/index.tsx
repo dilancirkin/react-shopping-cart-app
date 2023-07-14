@@ -1,30 +1,34 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-const URL = "https://fakestoreapi.com/products/";
 
-export type ProductDetailType = {
+interface Product {
   id: number;
   title: string;
-  price: string;
-  category: string;
+  price: number;
   description: string;
+  category: string;
   image: string;
-};
+}
 
-const useFetch = () => {
-  const [data, setData] = useState<ProductDetailType[] | null>();
+const URL = "https://fakestoreapi.com/products/";
 
-  const fetchData = async () => {
-      const response = await axios.get(`${URL}`);
-      setData(response.data);
-    
+const useFetch = (): Product[] | undefined => {
+  const [products, setProducts] = useState<Product[]>();
+
+  const fetchData = async (): Promise<void> => {
+    try {
+      const response = await axios.get<Product[]>(`${URL}`);
+      setProducts(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
+
   useEffect(() => {
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return {data };
+  return products;
 };
 
 export default useFetch;
