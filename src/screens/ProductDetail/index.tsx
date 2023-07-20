@@ -15,14 +15,16 @@ const ProductDetailPage: React.FC = () => {
   }
 
   if (!products) {
-    return   <Typography
-    variant="h6"
-    align="center"
-    color="orangered"
-    sx={{ fontWeight: "bold", marginTop: 30 }}
-  >
-    Loading...
-  </Typography>
+    return (
+      <Typography
+        variant="h6"
+        align="center"
+        color="orangered"
+        sx={{ fontWeight: "bold", marginTop: 30 }}
+      >
+        Loading...
+      </Typography>
+    );
   }
 
   const product = products.find((product) => product.id === parseInt(id));
