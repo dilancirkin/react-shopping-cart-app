@@ -1,14 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-}
+import { Product } from "../models/types";
 
 const URL = "https://fakestoreapi.com/products/";
 
