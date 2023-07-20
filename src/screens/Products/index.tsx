@@ -1,4 +1,3 @@
-import React from "react";
 import { Grid } from "@mui/material";
 
 import ProductCard from "../../components/ProductCard";
@@ -12,14 +11,15 @@ const Products = () => {
   }
 
   return (
-    <Grid container spacing={2} alignItems="stretch">
+    <div style={{ padding: 100 }}>
+      <Grid container spacing={10} justifyContent="center">
         {products.map((product) => (
-        <Grid item xs={12} sm={4} key={product.id}>
-        <ProductCard product={product} />
+          <Grid item xs={12} sm={4} key={product.id}>
+            <ProductCard product={product} />
+          </Grid>
+        ))}
       </Grid>
-      ))}
-  </Grid>
-   
+    </div>
   );
 };
 
