@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Typography } from "@mui/material";
 
 import ProductDetailCard from "../../components/ProductDetailCard";
 import useFetch from "../../hooks";
@@ -14,7 +15,14 @@ const ProductDetailPage: React.FC = () => {
   }
 
   if (!products) {
-    return <div>Loading...</div>;
+    return   <Typography
+    variant="h6"
+    align="center"
+    color="orangered"
+    sx={{ fontWeight: "bold", marginTop: 30 }}
+  >
+    Loading...
+  </Typography>
   }
 
   const product = products.find((product) => product.id === parseInt(id));
