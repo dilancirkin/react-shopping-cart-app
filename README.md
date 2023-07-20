@@ -39,7 +39,6 @@ Run the app
 
 [Styled Components](https://styled-components.com/)
 
-[Yup](https://github.com/jquense/yup)
 
 
 
