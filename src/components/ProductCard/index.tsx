@@ -31,17 +31,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const dispatch = useDispatch();
   const favoriteItems = useSelector((state: RootState) => state.cart.favorites);
   const cartItems = useSelector((state: RootState) => state.cart.items);
-  const notify = () => toast("Wow so easy!");
+  const notify = () => toast(" ADD TO BASKET!");
 
   //sepete ekle
   const handleAddToCart = (product: Product) => {
     dispatch(addToCart(product));
+    notify();
   };
 
   //sepetten çıkar
   const handleRemoveFromCart = (product: Product) => {
     dispatch(removeFromCart(product.id));
-    notify();
   };
 
   const isProductInCart = () => {
@@ -150,7 +150,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               variant="outlined"
               color="secondary"
             >
-              <ToastContainer />
               REMOVE BASKET
             </Button>
           ) : (
@@ -159,7 +158,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               variant="outlined"
               color="secondary"
             >
-              <ToastContainer />
+              <ToastContainer position="top-right" autoClose={1000} />
               ADD TO BASKET
             </Button>
           )}
