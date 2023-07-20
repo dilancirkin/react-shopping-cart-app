@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Typography, Grid } from "@mui/material";
 
 import ProductCard from "../../components/ProductCard";
 import useFetch from "../../hooks";
@@ -7,7 +7,16 @@ const Products = () => {
   const products = useFetch();
 
   if (!products) {
-    return <div>Loading...</div>;
+    return (
+      <Typography
+        variant="h6"
+        align="center"
+        color="orangered"
+        sx={{ fontWeight: "bold", marginTop: 30 }}
+      >
+        Loading...
+      </Typography>
+    );
   }
 
   return (

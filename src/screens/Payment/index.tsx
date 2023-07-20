@@ -1,9 +1,19 @@
-import React from 'react'
+import { Grid, Container } from "@mui/material";
 
-function Payment() {
+import ShoppingArea from "../../components/ShoppingArea";
+import PaymentArea from "../../components/PaymentArea";
+
+const Payment = (): JSX.Element => {
   return (
-    <div>Payment</div>
-  )
-}
+    <Container style={{display:'flex'}}>
+      <Grid>
+        <ShoppingArea />
+      </Grid>
+      <Grid>
+        <PaymentArea />
+      </Grid>
+    </Container>
+  );
+};
 
-export default Payment
+export default Payment;

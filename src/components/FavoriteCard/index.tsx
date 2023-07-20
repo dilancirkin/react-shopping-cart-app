@@ -41,98 +41,100 @@ const FavoriteCard = () => {
   };
 
   return (
-    <Container sx={{mt:10}}>
-     {favoriteItems.length === 0 ? (
+    <Container sx={{ mt: 10 }}>
+      {favoriteItems.length === 0 ? (
         <Typography
           variant="h6"
           align="center"
           color="orangered"
           sx={{ fontWeight: "bold", marginTop: 30 }}
         >
-YOU HAVE NOT ADDED A FAVORITE YET!        </Typography>
+          YOU HAVE NOT ADDED A FAVORITE YET!{" "}
+        </Typography>
       ) : (
-      <Grid container spacing={2}>
-        {favoriteItems.map((item) => (
-          <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>
-            <Card
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                height: "100%",
-                maxWidth: 345,
-                border: "2px solid orange",
-              }}
-            >
-              <CardHeader
-                action={
-                  <IconButton
-                    color={isFavorite(item) ? "secondary" : "default"}
-                    aria-label="add to favorites"
-                    onClick={() => handleToggleFavorite(item)}
-                  >
-                    <FavoriteIcon />
-                  </IconButton>
-                }
-              />
-              <CardMedia
-                component="div"
+        <Grid container spacing={2}>
+          {favoriteItems.map((item) => (
+            <Grid key={item.id} item xs={12} sm={6} md={4} lg={3}>
+              <Card
                 sx={{
                   display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  height: 200,
-                  backgroundColor: "white",
+                  flexDirection: "column",
+                  height: "100%",
+                  maxWidth: 345,
+                  border: "2px solid orange",
                 }}
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  style={{
-                    maxHeight: "100%",
-                    maxWidth: "100%",
-                    objectFit: "contain",
-                  }}
+                <CardHeader
+                  action={
+                    <IconButton
+                      color={isFavorite(item) ? "secondary" : "default"}
+                      aria-label="add to favorites"
+                      onClick={() => handleToggleFavorite(item)}
+                    >
+                      <FavoriteIcon />
+                    </IconButton>
+                  }
                 />
-              </CardMedia>
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography
-                  variant="overline"
-                  display="block"
-                  gutterBottom
-                  color="orangered"
+                <CardMedia
+                  component="div"
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: 200,
+                    backgroundColor: "white",
+                  }}
                 >
-                  {item.title}
-                </Typography>
-                <Typography
-                  variant="caption"
-                  display="block"
-                  gutterBottom
-                  color="textSecondary"
-                  sx={{ mb: 1 }}
-                >
-                  {truncateDescription(item.description, 90)}
-                </Typography>
-                <Typography variant="overline" display="block" gutterBottom>
-                  {item.category}
-                </Typography>
-              </CardContent>
-              <Grid
-                container
-                spacing={1}
-                direction="column"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Grid item>
-                  <Typography variant="overline" display="block" gutterBottom>
-                    Price: ${item.price}
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    style={{
+                      maxHeight: "100%",
+                      maxWidth: "100%",
+                      objectFit: "contain",
+                    }}
+                  />
+                </CardMedia>
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography
+                    variant="overline"
+                    display="block"
+                    gutterBottom
+                    color="orangered"
+                  >
+                    {item.title}
                   </Typography>
+                  <Typography
+                    variant="caption"
+                    display="block"
+                    gutterBottom
+                    color="textSecondary"
+                    sx={{ mb: 1 }}
+                  >
+                    {truncateDescription(item.description, 90)}
+                  </Typography>
+                  <Typography variant="overline" display="block" gutterBottom>
+                    {item.category}
+                  </Typography>
+                </CardContent>
+                <Grid
+                  container
+                  spacing={1}
+                  direction="column"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <Grid item>
+                    <Typography variant="overline" display="block" gutterBottom>
+                      Price: ${item.price}
+                    </Typography>
+                  </Grid>
                 </Grid>
-              </Grid>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>)}
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      )}
     </Container>
   );
 };
