@@ -39,7 +39,9 @@ Run the app
 
 [Styled Components](https://styled-components.com/)
 
-
+## Screenshots
+![Uygulama Ekran Görüntüsü](https://www.linkpicture.com/q/payment1_1.png)
+![Uygulama Ekran Görüntüsü](https://www.linkpicture.com/q/payment.png)
 
 
 
